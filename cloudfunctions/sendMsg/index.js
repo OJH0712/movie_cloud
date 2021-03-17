@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
           value:event.time
         },
         amount3:{
-          value:event.price
+          value:event.total_price
         }
       },
     })

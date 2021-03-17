@@ -1,1 +1,30 @@
 /* pages/mine/dingdan/dingdan.wxss */
+page{
+  background-color: #f3f3ef;
+}
+.dd_container{
+  display: flex;
+  width: 100%;
+  flex-direction:column ;
+  border: 1px solid #cdcdcd;
+  margin-top: 2vh;
+  background-color: white;
+}
+.top{
+  padding: 1vh;
+}
+.mid{
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  margin: 0 2vh ;
+  display: flex;
+  justify-content: space-around;
+}
+.mid>.right-container{
+}
+.mid>.left-container{
+  padding: 1vh;
+}
+.bot{
+  padding: 1vh;
+}

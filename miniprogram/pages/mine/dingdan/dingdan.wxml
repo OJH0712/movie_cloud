@@ -1,2 +1,16 @@
 <!--pages/mine/dingdan/dingdan.wxml-->
-<text>pages/mine/dingdan/dingdan.wxml</text>
+<view class="dd_container">
+  <view class="top">{{cinema_name}}</view>
+  <view class="mid">
+    <view class="right-container">
+      <view class="pic">图片</view>
+    </view>
+    <view class="left-container">
+      <view>{{movie_name}} 两张</view>
+      <view>取票码：<text>6677</text></view>
+      <view>{{date}} {{onplay}}</view>
+      <view>{{play_place}} <text wx:for="{{seat_position}}">{{item.x+1}}排{{item.y+1}}座</text></view>
+    </view>
+  </view>
+  <view class="bot">总价<text>{{total_price}}元</text></view>
+</view>

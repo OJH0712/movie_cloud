@@ -42,15 +42,16 @@ Page({
       console.log("获取openid成功",openid)
       this.Send(openid)
     }).catch(res=>{
-      console.log("获取openid失败",openid)
+      console.log("获取openid失败",res)
     })
   },
   Send(openid){
-    let price = this.data.price.toFixed(2)
+    let total_price = this.data.total_price.toFixed(2)
+    const that = this
     let time = this.getTime()
     wx.cloud.callFunction({
       name:"sendMsg",
-      data:{openid:openid,price,time}
+      data:{openid:openid,total_price,time}
     }).then((res)=>{
       console.log("推送消息成功",res)
       wx.showToast({
@@ -58,8 +59,19 @@ Page({
         icon: 'success',   // 图标类型，默认success 图标支持开发文档的icon
         duration: 1500   // 图标停留时间，默认1500ms
     })    
-      wx.switchTab({
-        url: '../../pages/mine/mine',
+      wx.navigateTo({
+        url: '../../pages/mine/dingdan/dingdan',
+        success:function(res){
+          // 通过eventChannel向被打开页面传送数据
+          res.eventChannel.emit('date', that.data.date)
+          res.eventChannel.emit('total_price', that.data.total_price)
+          res.eventChannel.emit('price', that.data.price)
+          res.eventChannel.emit('onplay', that.data.onplay)
+          res.eventChannel.emit('play_place', that.data.play_place)
+          res.eventChannel.emit("cinema_name",that.data.cinema_name)
+          res.eventChannel.emit("movie_name",that.data.movie_name)
+          res.eventChannel.emit("seat_position",that.data.seat_position)
+        }
       })
     }).catch((res)=>{
       console.log("推送消息失败",res)

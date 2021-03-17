@@ -137,6 +137,20 @@
   color: #cdcdcd;
 }
 /* 票房介绍end */
+/* 观影人数可视化start */
+.watch_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color:white;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 1vh 0;
+  margin-bottom: 2vw;
+}
+/* 观影人数可视化end */
+
 /* 观众评论区start */
 .movie_comment{
   width: 100%;

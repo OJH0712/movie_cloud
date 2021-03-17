@@ -1,22 +1,23 @@
 {
   "pages": [
     "pages/movie/movie",
+    "pages/movie/movie_introduce/movie_introduce",
+    "pages/mine/dingdan/dingdan",
     "pages/search/search",
     "pages/cinema/cinema",
     "pages/pay/pay",
     "pages/choose_seat/choose_seat",
-    "pages/movie/movie_introduce/movie_introduce",
     "pages/cinema/cinnema_info/cinema_info",
     "pages/mine/mine",
     "pages/movie/movie_introduce/comment/comment",
     "pages/map/map",
     "pages/test/test",
-    "pages/mine/dingdan/dingdan",
     "pages/mine/youhuijuan/youhuijuan",
     "pages/mine/vip/vip",
     "pages/mine/movie_want/movie_want",
     "pages/mine/movie_ever/movie_ever",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/chart/chart"
   ],
   "window": {
     "backgroundTextStyle": "light",

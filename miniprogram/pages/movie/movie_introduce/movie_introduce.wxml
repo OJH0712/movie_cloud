@@ -67,6 +67,9 @@
     </view>
   </view>
 </view>
+<view class="watch_container" bindtap="moveToChart">
+  <view>观影人数可视化</view>
+</view>
 <!-- 评论区 -->
 <view class="movie_comment">
   <view class="top">

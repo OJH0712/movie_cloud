@@ -18,6 +18,15 @@ Page({
       this.onQuery()
     })
   },
+  moveToChart(){
+    const that = this
+    wx.navigateTo({
+      url: '../../chart/chart',
+      success:function(res){
+        res.eventChannel.emit('watch_num', that.data.queryResult.watch_num)
+      }
+    })
+  }, 
   onQuery: function() {
     const db = wx.cloud.database();
     db.collection('movieIntroduce').where({
@@ -28,7 +37,6 @@ Page({
           queryResult: res.data[0]
         })
         console.log('[数据库] [查询记录] 成功: ', res.data)
-        console.log('[数据库] [查询记录] 成功: ', this.data.queryResult.en_title)
       },
       fail: err => {
         wx.showToast({
