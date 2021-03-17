@@ -8,3 +8,24 @@
   background="#bfbfbf" >
   <view slot="action" bind:tap="onClick" style="color:#d81e06" >取消</view>
   </van-search>
+  <!-- 电影卡片 -->
+  <view class="movie_card" wx:for="{{queryResult}}" id="{{item.id}}" bindtap="onIntroduce">
+        <view class="left">
+          <image src="{{item.img_url}}" mode="aspectFit"></image>
+        </view>
+        <view class="mid">
+          <view class="mid_title">
+            <view>{{item.title}}</view>
+            <van-tag type="primary" color="#93B7D1" wx:if="{{item.type_2D}}">2D</van-tag>
+            <van-tag type="primary" color="#93B7D1"wx:if="{{item.type_2D}}">3D</van-tag>
+            <van-tag plain type="primary" color="#93B7D1" wx:if="{{item.type_IMAX}}">IMAX</van-tag>
+            <van-tag type="warning"wx:if="{{item.pointer_play}}">点映</van-tag>
+          </view>
+          <text>{{item.introduce}}</text>
+          <view><text>主演：</text><text>{{item.act}}</text></view>
+          <text>今天放映{{item.number}}场</text>
+        </view>
+        <view class="right">
+          <text>{{item.score}}分</text>
+        </view>
+      </view>

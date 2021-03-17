@@ -11,18 +11,22 @@ Page({
   onSearch(value){
     let val = value.detail.replace(/\s*/g, '')
     let that = this
-    this.data.cinema_list.find((item)=>{
-      if(item.cinema_title.indexOf(val)!==-1){
-        let list = []
-        list.push(item)
-        console.log(list)
-        that.setData({
-          list:list
-        })
-        return item
+    // 1. 获取数据库引用
+    const db = wx.cloud.database()
+    db.collection('cinemaList').where({
+      cinema_title:db.RegExp({
+        regexp:val,
+        options:'i'
+      })
+    }
+      ).get({
+      success: function(res) {
+      that.setData({
+        list:res.data
+      })
       }
-    })
-  },
+      })
+    },
   onCancel(){
     this.setData({
       list:""

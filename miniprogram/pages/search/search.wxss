@@ -1,1 +1,52 @@
 /* pages/search/search.wxss */
+.movie_card{
+  display: flex;
+  box-sizing: border-box;
+  padding: 2vh 2vh;
+  justify-content: space-between;
+  border-bottom: 1px solid #DCDCDC;
+}
+.movie_card>.left{
+  flex: 2;
+}
+.movie_card>.left>image{
+  width: 100%;
+  height:100%
+}
+.movie_card>.mid{
+  flex:3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-left: 1vh;
+}
+.movie_card>.mid>.mid_title{
+  /* display: flex; */
+  overflow: hidden;
+}
+.mid_title>view:first-child{
+  font-weight: 600;
+  margin-right: 1vh;
+}
+.mid_title van-tag{
+  margin-right: 1px;
+}
+.movie_card>.mid text{
+  color: #6D6D6B;
+  font-size: small;
+}
+.movie_card>.mid>text:last-child{
+  color: #949494;
+}
+.movie_card>.right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  text-align:center;
+  flex: 1;
+}
+.movie_card>.right>text{
+  color: orange;
+  font-size: medium;
+}

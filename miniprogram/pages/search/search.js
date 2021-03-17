@@ -6,6 +6,7 @@ Page({
    */
   data: {
     value: '',
+    queryResult:[]
   },
   // 搜索栏内容更改
   onChange(e) {
@@ -15,7 +16,32 @@ Page({
   },
   // 将搜索框内搜索的内容显示
   onSearch() {
-    Toast('搜索' + this.data.value);
+    console.log('搜索',this.data.value);
+    const that = this
+    // 1. 获取数据库引用
+    const db = wx.cloud.database()
+    db.collection('movie').where({
+      title:db.RegExp({
+        regexp:this.data.value,
+        options:'i'
+      })
+    }
+      ).get({
+      success: function(res) {
+      that.setData({
+        queryResult:res.data
+      })
+    }
+    })
+  },
+  onIntroduce(data){
+    wx.navigateTo({
+      url: '../movie/movie_introduce/movie_introduce',
+      success:function(res){
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', data.currentTarget.id)
+      }
+    })
   },
   onClick() {
     wx.navigateTo({

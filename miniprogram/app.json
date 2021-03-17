@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/cinema/cinema",
     "pages/movie/movie",
+    "pages/search/search",
+    "pages/cinema/cinema",
     "pages/pay/pay",
     "pages/choose_seat/choose_seat",
     "pages/movie/movie_introduce/movie_introduce",
@@ -9,7 +10,6 @@
     "pages/mine/mine",
     "pages/movie/movie_introduce/comment/comment",
     "pages/map/map",
-    "pages/search/search",
     "pages/test/test",
     "pages/mine/dingdan/dingdan",
     "pages/mine/youhuijuan/youhuijuan",

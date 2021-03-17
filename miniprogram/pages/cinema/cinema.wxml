@@ -16,14 +16,14 @@
       </view>
       <text class="cinema_address">{{item.address}}</text>
       <view class="label_container">
-        <van-tag plain type="primary">IMAX厅</van-tag>
-        <van-tag plain type="primary">座</van-tag>
-        <van-tag plain type="primary">杜比音效</van-tag>
-        <van-tag plain type="warning">小吃</van-tag>
+        <van-tag plain type="primary" wx:if="{{item.cinema_info_1}}">IMAX厅</van-tag>
+        <van-tag plain type="primary" wx:if="{{item.cinema_info_2}}" >座</van-tag>
+        <van-tag plain type="primary" wx:if="{{item.cinema_info_3}}">杜比音效</van-tag>
+        <van-tag plain type="warning" wx:if="{{item.cinema_info_4}}">小吃</van-tag>
       </view>
       <view class="cinema_active">
-          <view><van-tag type="warning">惠</van-tag><text>温暖的抱抱</text></view>
-          <view><van-tag type="danger">促</van-tag><text>影院特惠促销</text></view>
+          <view wx:if="{{item.cinema_info_5}}"><van-tag type="warning">惠</van-tag><text>温暖的抱抱</text></view>
+          <view wx:if="{{item.cinema_info_6}}"><van-tag type="danger">促</van-tag><text>影院特惠促销</text></view>
       </view>
     </view>
     <view class="right">{{item.distance}}km</view>
