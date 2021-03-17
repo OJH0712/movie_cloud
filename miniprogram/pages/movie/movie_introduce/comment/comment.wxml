@@ -1,0 +1,15 @@
+<!--pages/movie/movie_introduce/comment/comment.wxml-->
+<view class="comment_container">
+  <text>请滑动星星进行评分</text>
+  <van-rate
+  value="{{ value }}"
+  size="{{ 40 }}"
+  allow-half
+  color="orange"
+  void-color="#eee"
+  void-icon="star"
+  bind:change="onChange"
+/>
+  <textarea placeholder="请输入你的评论（50-300字）"></textarea>
+  <van-button type="warning" size="large">提交</van-button>
+</view>

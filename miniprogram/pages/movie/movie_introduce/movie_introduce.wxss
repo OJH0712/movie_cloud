@@ -1,0 +1,154 @@
+/* pages/movie/movie_inroduce/movie_inroduce.wxss */
+/* 电影容器，背景 */
+.bg{
+  background-color: aliceblue;
+}
+/* 电影信息介绍start */
+.movie_info_bg{
+  position: absolute;
+  filter: blur(40rpx);
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+.movie_info{
+  position: relative;
+  padding: 1vh;
+  left: 0;
+  top:0;
+}
+/* 顶部样式 */
+.movie_info>.top{
+  display: flex;
+  justify-content: space-evenly;
+}
+/* 顶部左侧 */
+.movie_info>.top>.left{
+  flex: 2;
+} 
+.movie_info>.top>.left image{
+  width: 100%;
+  height: 100%;
+}
+/* 顶部右侧 */
+.movie_info>.top>.right{
+  flex: 3;
+  padding-left: 1vh;
+  color: white;
+  font-size: smaller;
+}
+/* 底部按钮 */
+.movie_info>.bottom{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3vh;
+}
+.movie_info>.bottom>button{
+  width: 45%;
+  font-size: small;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border:1px solid rgba(255, 255, 255, 0.5);
+}
+.movie_info>.bottom>button>text{
+  margin-left:1vh ;
+}
+
+/* 电影信息介绍end */
+/* 电影背景介绍start */
+.movie_text{
+  box-sizing: border-box;
+  width: 100%;
+  background-color:white;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 1vh;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 5vw;
+}
+/* 电影背景介绍end */
+/* 演员介绍start */
+.movie_actor_container{
+  width: 100%;
+  background-color:white;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  margin-bottom: 5vw;
+}
+.srcolbox {
+  width: 100%;
+  white-space: nowrap;
+}
+.item {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+ .srcolbox .item>image{
+  width: 80px;
+  height: 100px;
+ }
+ .srcolbox .item>view{
+   font-size: smaller;
+ }
+ .srcolbox .item>view:last-child{
+   color: #cdcdcd;
+ }
+/* 演员介绍end */
+/* 票房介绍start */
+.movie_ticket_container{
+  width: 100%;
+  background-color:white;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 1vw 1vw 3vh 1vh;
+  margin-bottom: 5vw;
+}
+.ticket_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2vw;
+}
+.ticket_info>view{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.ticket_info>view>text:nth-child(1){
+  font-size: larger;
+  color: red;
+}
+.ticket_info>view>text:nth-child(2){
+  font-size: small;
+  color: #cdcdcd;
+}
+/* 票房介绍end */
+/* 观众评论区start */
+.movie_comment{
+  width: 100%;
+  box-sizing: border-box;
+  background-color:white;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 3vw 2vw;
+  margin-bottom: 5vw;
+}
+.movie_comment>.top{
+  display: flex;
+  justify-content: space-between;
+}
+/* 观众评论区end */

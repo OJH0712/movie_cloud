@@ -1,0 +1,50 @@
+<!--miniprogram/pages/pay/pay.wxml-->
+<!-- 支付时间倒计时 -->
+<!-- 电影票介绍 -->
+<van-cell title="{{movie_name}}" use-label-slot>
+  <view slot="label" class="introduce">
+    <view>{{date}} {{onplay}}（{{language}}）</view>
+    <view>{{cinema_name}} {{play_place}}</view>
+    <view class="seat">
+      <view wx:for="{{seat_position}}">
+        {{item.x+1}}排{{item.y+1}}座
+      </view>
+    </view>
+    <view>
+      <view>票价：</view>
+      <view>含服务费3元/张 {{price}}元</view>
+    </view>
+  </view>
+</van-cell>
+<!-- 活动优惠券 -->
+<van-cell title="活动与优惠券" is-link value="无可用" />
+<!-- 退改签须知 -->
+<van-cell title="退改签须知"/>
+<van-cell use-label-slot>
+  <view slot="label">
+    <view>开场时间24小时前，可免费改签</view>
+    <view>开场时间60分钟前，改签手续费3元一张</view>
+  </view>
+</van-cell>
+<!-- 手机信息 -->
+<van-cell-group>
+  <van-field
+     label="手机号"
+    value="{{ value }}"
+    placeholder="请输入手机号"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<!-- 确认支付 -->
+<view class="button_container">
+  <view class="tips">
+    <view class="tips_left">
+      <view><van-icon name="certificate" />开场时间60分钟前可改签(手续费)</view>
+      <view><van-icon name="certificate" />开场时间60分钟前可退款(手续费)</view>
+    </view>
+    <view class="tips_right">{{total_price}}元</view>
+  </view>
+  <view>
+    <van-button type="warning" size="large" bindtap="Show"  >确认支付</van-button>
+  </view>
+</view>

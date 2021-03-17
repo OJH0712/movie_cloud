@@ -1,0 +1,12 @@
+{
+  "cinema_id":"1",
+  "cinema_title":"飞扬影城",
+  "address":"广州市天河区天河城4楼",
+  "distance":"5.5",
+  "cinema_info_1":true,
+  "cinema_info_2":true,
+  "cinema_info_3":true,
+  "cinema_info_4":true,
+  "cinema_info_5":true,
+  "cinema_info_6":true
+}

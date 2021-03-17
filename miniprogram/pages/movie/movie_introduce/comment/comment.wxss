@@ -1,0 +1,23 @@
+/* pages/movie/movie_introduce/comment/comment.wxss */
+.comment_container{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  
+}
+.comment_container>text{
+  margin-bottom: 5vw;
+  font-size: small;
+  color: orange;
+}
+.comment_container>textarea{
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  padding:2vw;
+  margin: 5vw 0;
+}

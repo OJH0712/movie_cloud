@@ -1,0 +1,45 @@
+/* miniprogram/pages/pay/pay.wxss */
+/* <!-- 电影票介绍 --> */
+.introduce>view:nth-child(1){
+  color: red;
+}
+.introduce>view:nth-child(4){
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+  padding-top:1vh ;
+  border-top: 1px solid #f8f1f1 ;
+  color: red;
+}
+.seat{
+  display: flex;
+  color: #cdcdcd;
+  justify-content:left;
+}
+.seat>view{
+  margin-right: 2vh;
+}
+/* <!-- 确认支付 --> */
+.button_container{
+  box-sizing: border-box;
+  background-color: white;
+  border-top: 1px solid #cdcdcd;
+  padding: 1vh 2vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.tips{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+.tips_left{
+  font-size: 12px;
+  color: orange;
+}
+.tips_right{
+  color:red;
+  font-size: 14px;
+}

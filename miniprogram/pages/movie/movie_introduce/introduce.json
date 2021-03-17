@@ -1,0 +1,85 @@
+
+  {
+    "id":"1",
+    "img":"https://p0.meituan.net/movie/df84690ded848edf709187eae23a7969866455.jpg@464w_644h_1e_1c",
+    "title":"送你一朵小红花",
+    "en_title":"A little Red Flower",
+    "score":"9.3",
+    "rate_value":"4.5",
+    "info_1":"剧情，家庭",
+    "info_2":"中国大陆 / 128分钟",
+    "actor":[
+      {
+      "pic":"https://p0.meituan.net/movie/3e90042169a24c892cb7a42801e01b2043640.jpg@128w_170h_1e_1c",
+      "name":"韩延",
+      "player":"导演"
+    },
+    {
+      "pic":"https://p1.meituan.net/moviemachine/0da279bf85e8138ee892fd6ca3218903173789.jpg@128w_170h_1e_1c",
+      "name":"易烊千玺",
+      "player":"饰：韦一航"
+    },
+    {
+      "pic":"https://p0.meituan.net/moviemachine/857cde167841b4f4b9ddc13cd5a9f465189662.jpg@128w_170h_1e_1c",
+      "name":"刘浩存",
+      "player":"饰：马小远"
+    },
+    {
+      "pic":"https://p0.meituan.net/moviemachine/1a5e8eea4dd7f28130bd077b7d02f02819898.jpg@128w_170h_1e_1c",
+      "name":"朱媛媛",
+      "player":"饰：陶慧"
+    },
+    {
+      "pic":"https://p1.meituan.net/movie/58ad7140a723be8b9b4fa2fcf408b1e531656.jpg@128w_170h_1e_1c",
+      "name":"高亚麟",
+      "player":"饰：韦江"
+    }
+    ],
+    "info_3":"2020-12-31 18:00 中国大陆上映",
+    "introduce":"一个声称能“看见未来”的患癌男孩韦一航（易烊千玺 饰），遇见了一个相信“平行世界”的患癌女孩马小远（刘浩存 饰），在深夜的露台上，两人遥望夜空，展开了对各自所向往的美好世界的描述。 影片围绕两个抗癌家庭的两组生活轨迹展开，讲述了一个温情的现实故事，思考和直面了每一个普通人都会面临的终极问题——想象死亡随时可能到来，我们唯一要做的就是爱和珍惜。",
+    "ticket_num":"3",
+    "fir_week_ticket":"76180",
+    "total_ticket":"130038"
+  }
+  {
+    "id":"2",
+    "img":"https://p1.meituan.net/movie/63696901c00a1aea8fcc62ba873bb6d41014216.jpg@464w_644h_1e_1c",
+    "title":"拆弹专家2",
+    "en_title":"Shock Wave 2",
+    "score":"9.4",
+    "rate_value":"4.8",
+    "info_1":"动作 犯罪",
+    "info_2":"中国大陆,中国香港 / 121分钟",
+    "actor":[
+      {
+      "pic":"https://p0.meituan.net/moviemachine/7af3208612ea21acc6bd9d3275d9899060103.jpg@128w_170h_1e_1c",
+      "name":"邱礼涛",
+      "player":"导演"
+    },
+    {
+      "pic":"https://p0.meituan.net/moviemachine/9312e90f25f5ad40f2ceb4561f6fa08830409.jpg@128w_170h_1e_1c",
+      "name":"刘德华",
+      "player":"饰：潘乘风"
+    },
+    {
+      "pic":"https://p0.meituan.net/movie/2d86d07b09fb8f6c67e3a6f9e391ff2243176.jpg@128w_170h_1e_1c",
+      "name":"刘青云",
+      "player":"饰：董卓文"
+    },
+    {
+      "pic":"https://p0.meituan.net/movie/b1d82c160ed50f7db938c56aa157bf2942241.jpg@128w_170h_1e_1c",
+      "name":"倪妮",
+      "player":"饰：庞玲"
+    },
+    {
+      "pic":"https://p1.meituan.net/moviemachine/a9dadc15bff146506c3a7be5579ae0cb40999.jpg@128w_170h_1e_1c",
+      "name":"谢君豪",
+      "player":"饰："
+    }
+    ],
+    "info_3":"2020-12-24 10:00中国大陆上映",
+    "introduce":"香港某处发生爆炸案，前拆弹专家潘乘风（刘德华 饰）因昏迷于现场，被警方怀疑牵涉其中。苏醒后的潘乘风只能一边逃亡一边查明真相，然而，他的好友董卓文（刘青云 饰）和他的前女友庞玲（倪妮 饰）却给他讲述了两段截然不同的经历。有计划的爆炸案接二连三发生，真相却越来越扑朔迷离……",
+    "ticket_num":"2",
+    "fir_week_ticket":"76180",
+    "total_ticket":"130038"
+  }

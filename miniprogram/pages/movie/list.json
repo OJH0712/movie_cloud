@@ -1,0 +1,28 @@
+{
+	"id": 1,
+	"title": "送你一朵小红花",
+	"act": "刘浩存",
+	"img_url": "../../imgages/cinema.png",
+	"type":"movie",
+	"score": "9",
+	"introduce": "剧情，治愈，爱情",
+	"number": "3000",
+	"type_2D": "true",
+	"type_IMAX": "false",
+	"type_3D": "true",
+	"pointer_play": "true"
+}
+{
+	"id": 2,
+	"title": "爆破专家2",
+	"act": "刘德华",
+	"img_url": "../../imgages/mine.png",
+	"type":"movie",
+	"score": "8.6",
+	"introduce": "动作，犯罪",
+	"number": "2400",
+	"type_2D": "true",
+	"type_IMAX": "false",
+	"type_3D": "true",
+	"pointer_play": "true"
+}

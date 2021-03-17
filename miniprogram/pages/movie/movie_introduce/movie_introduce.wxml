@@ -1,0 +1,86 @@
+<!--pages/movie/movie_inroduce/movie_inroduce.wxml-->
+<!-- 顶部电影信息 -->
+<view class="bg"></view>
+<view class="movie_info">
+<!-- 背景高斯模糊 -->
+  <view class="movie_info_bg" 
+  style="background-image: url({{queryResult.img}});">
+  </view>
+  <!-- 蒙版 -->
+  <view class="mask"></view>
+  <view class="top">
+    <view class="left">
+      <image src="{{queryResult.img}}" mode="aspectFit"></image>
+    </view>
+    <view class="right">
+      <view style="font-size:large;">{{queryResult.title}}</view>
+      <view >{{queryResult.en_title}}</view>
+      <!-- 固定评分 -->
+      <view class="rate">
+        <van-rate readonly
+          value="{{queryResult.rate_value}}"
+          size="{{ 19 }}"
+          allow-half
+          color="orange"
+          void-color="#eee"
+          void-icon="star"
+        />
+<text style="font-size: x-large;color:orange">{{queryResult.score}}</text>
+      </view>
+      <view>{{queryResult.info_1}}</view>
+      <view>{{queryResult.info_2}}</view>
+      <view>{{queryResult.info_3}}</view>
+    </view>
+  </view>
+  <view class="bottom">
+    <button><van-icon name="like-o" /><text>想看</text></button>
+    <button><van-icon name="star-o" /><text>评分</text></button>
+  </view>
+  </view>
+<view class="movie_text">{{queryResult.introduce}}</view>
+<view class="movie_actor_container">
+  <view>演职人员</view>
+  <scroll-view class="srcolbox" scroll-x	 scroll-with-animation='true'>
+    <view class="item" wx:for="{{queryResult.actor}}">
+      <image 
+      src="{{item.pic}}"
+      ></image>
+      <view>{{item.name}}</view>
+      <view>{{item.player}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class="movie_ticket_container">
+  <view>票房</view>
+  <view class="ticket_info">
+    <view>
+      <text>{{queryResult.ticket_num}}</text>
+      <text>昨日票房排行</text>
+    </view>
+    <view>
+      <text>{{queryResult.fir_week_ticket}}</text>
+      <text>首周票房(万)</text>
+    </view>
+    <view>
+      <text>{{queryResult.total_ticket}}</text>
+      <text>累计票房(万)</text>
+    </view>
+  </view>
+</view>
+<!-- 评论区 -->
+<view class="movie_comment">
+  <view class="top">
+    <text>观众评论</text>
+    <navigator url="./comment/comment">
+      <van-button 
+        type="danger"
+        plain
+        size="mini"
+        round
+        >写评论
+      </van-button>
+    </navigator>
+    
+  </view>
+</view>
+

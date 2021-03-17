@@ -1,0 +1,143 @@
+/* pages/cinema/cinnema_info/cinema_info.wxss */
+.cinema_container{
+  background-color: #FFFFFF;
+  height: 100vh;
+}
+/* 影城地址及map样式 */
+.address_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 12vh;
+  padding: 2vh;
+}
+.address_container>.left {
+  flex: 4;
+  padding-right:2vh;
+  height: 100%;
+  overflow: hidden;
+}
+.address_container>.left>view:first-child {
+  font-weight: 800;
+  font-size: 17px;
+}
+.address_container>.left>view:last-child {
+  font-size: smaller;
+  color: #9EA09F;
+}
+.address_container>.mid {
+    height: 60%;
+    margin-bottom: 5%;
+    width: 1px;
+    background-color: #CDCDCD;
+}
+.address_container>.right {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+}
+.address_container>.right>view {
+  font-size: smaller;
+  color: #9EA09F;
+}
+.address_container>.right>image{
+  width: 72rpx;
+  height: 72rpx;
+}
+/* 电影滚动区域start */
+  .swiper_container{
+    position: relative;
+    height: 150px;
+    background-color: transparent;
+  }
+  .swiper_container_bg{
+    position: absolute;
+    box-sizing: border-box;
+    background-position-y: 20%;
+    filter: blur(13rpx);
+    width: 100%;
+    height: 100%;
+    top: 5px;
+  }
+  .mask{
+    position: absolute;
+    width: 100%;
+    height: 160px;
+    background-color:rgba(0, 0, 0, 0.4);
+  }
+  .triangle{
+    position: absolute;
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%,5px) rotate(-135deg);
+    border-right: 10px solid white;
+    border-top: 10px solid transparent;
+    z-index: 5;
+  }
+  .swiper_container>swiper{
+    /* width: 70%; */
+  }
+  .swiper_container>swiper swiper-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper_container>swiper swiper-item image{
+    height: 20%;
+    border: white 1px solid;
+  }
+/* 电影滚动区域end */
+
+/* 电影介绍栏样式 */
+.movie_introduce{
+  text-align: center;
+  padding: 1vh 0;
+  margin-top: 1vh;
+  border-bottom: 1px solid #cdcdcd;
+}
+.movie_introduce_title>text:first-child{
+  font-weight: 800;
+}
+.movie_introduce_title>text:last-child{
+  margin-left: 2vh;
+  color: orange;
+}
+.movie_introduce_detail{
+  color: #9EA09F;
+  font-size: smaller;
+}
+.movie_introduce_detail>text{
+  box-sizing: border-box;
+  padding: 0 1vh;
+  border-right:1px solid #9EA09F;
+}
+.movie_introduce_detail>text:last-child{
+  border-right: none;
+}
+
+/* 电影播放时间和播放时间列表（vant) */
+.play_detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
+  border-top: 1px solid #CDCDCD;
+}
+.play_detail>.time>view:nth-child(2){
+  color:#CDCDCD ;
+  font-size: smaller;
+}
+.play_detail>.type>view:nth-child(1){
+  font-size: small;
+}
+.play_detail>.type>view:nth-child(2){
+  font-size: smaller;
+  color:#CDCDCD ;
+}
+.play_detail>.price{
+  color: #DE433E;
+}

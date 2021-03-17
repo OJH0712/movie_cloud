@@ -1,0 +1,65 @@
+<!--pages/cinema/cinnema_info/cinema_info.wxml-->
+<view class="cinema_container">
+  <view class="address_container">
+    <view class="left">
+      <view>{{cinema_title}}</view>
+      <view>{{cinema_address}}</view>
+    </view>
+    <view class="mid"></view>
+    <navigator class="right" url="./../../map/map">
+      <image src="../../../imgages/locate.png" mode="scaleToFill"></image>
+      <view>地图</view>
+    </navigator>
+  </view>
+  <!-- 电影图片滚动区域start -->
+  <view class="swiper_container">
+    <view class="swiper_container_bg" 
+    style="background-image: url({{movie_detail[key].img_url||default_img}})"
+    ></view>
+    <view class="mask"></view>
+    <view class="triangle"></view>
+    <swiper bindchange="onkey" autoplay="{{autoplay}}" interval="1000"> 
+      <swiper-item wx:for="{{movie_detail}}">
+        <image 
+        src="{{item.img_url}}"
+        mode="heightFix"
+        style="height:90%"
+        ></image></swiper-item>
+    </swiper>
+  </view>
+  <!-- 电影图片滚动区域end -->
+  <!-- 电影名字和介绍 -->
+  <view class="movie_introduce" >
+    <view class="movie_introduce_title">
+      <text item-id>{{movie_detail[key].title}}</text>
+    </view>
+    <view class="movie_introduce_detail">
+      <text>{{movie_detail[key].time}}分钟</text>
+      <text>{{movie_detail[key].introduce}}</text>
+      <text>{{movie_detail[key].act}}</text>
+    </view>
+  </view>
+  <!-- 电影播放时间和播放时间列表（vant） -->
+  <van-tabs active="{{ active }}" bind:change="onChange" id="tabs">
+    <van-tab title="{{date_list[index]}}" wx:for="{{movie_list_temp.date.paiqi}}">
+      <view class="play_detail" wx:for="{{item}}">
+        <view class="time">
+          <view>{{item.onplay}}</view>
+          <view>{{item.leave}}散场</view>
+        </view>
+        <view class="type">
+          <view>{{item.language}}2D</view>
+          <view>{{item.play_place}}</view>
+        </view>
+        <view class="price">{{item.price}}元</view>
+        <van-button type="danger" size="mini" bindtap="onPurchase"
+        data-language="{{item.language}}"
+        data-price="{{item.price}}"
+        data-onplay="{{item.onplay}}"
+        data-play_id="{{item.play_id}}"
+        data-play_place="{{item.play_place}}"
+        >购买</van-button>
+      </view>
+    </van-tab>
+</van-tabs>
+</view>

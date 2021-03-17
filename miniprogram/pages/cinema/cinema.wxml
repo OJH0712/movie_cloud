@@ -1,0 +1,32 @@
+<!--pages/index/cinema/cinema.wxml-->
+<view class="cinema_search">
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词"
+  show-action
+  bind:search="onSearch"
+  bind:cancel="onCancel" />
+</view>
+  <view class="cinema_container"  wx:for="{{list || cinema_list}}" 
+  id="{{item.cinema_id}}" 
+  data-cinema_title="{{item.cinema_title}}" 
+  data-cinema_address="{{item.address}}" bind:tap="onIntroduce">
+  <view>
+    <view class="left">
+      <view class="cinema_title">
+      <text>{{item.cinema_title}}</text><text>{{item.price}}元起</text>
+      </view>
+      <text class="cinema_address">{{item.address}}</text>
+      <view class="label_container">
+        <van-tag plain type="primary">IMAX厅</van-tag>
+        <van-tag plain type="primary">座</van-tag>
+        <van-tag plain type="primary">杜比音效</van-tag>
+        <van-tag plain type="warning">小吃</van-tag>
+      </view>
+      <view class="cinema_active">
+          <view><van-tag type="warning">惠</van-tag><text>温暖的抱抱</text></view>
+          <view><van-tag type="danger">促</van-tag><text>影院特惠促销</text></view>
+      </view>
+    </view>
+    <view class="right">{{item.distance}}km</view>
+  </view>
+    
+</view>

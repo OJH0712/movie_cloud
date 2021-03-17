@@ -1,0 +1,40 @@
+/* pages/index/cinema/cinema.wxss */
+.cinema_search{
+  border-bottom: 2px solid #DCDCDC;
+}
+.cinema_container{
+  border-bottom: 1px solid #DCDCDC;
+}
+.cinema_container>view{
+  display: flex;
+  padding: 1vh 2vh;
+}
+.cinema_container .left{
+  flex: 8;
+}
+.cinema_container .right{
+  flex: 2;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  text-align: center;
+  color: #8A8A8A;
+}
+.cinema_title{
+  font-size:large;
+  font-weight: 600;
+}
+.cinema_address{
+  font-size: small;
+  color: #626262;
+}
+.cinema_title>text:last-child{
+  margin-left: 2vh;
+  color:#CD504B ;
+}
+.label_container>van-tag{
+  margin-right: 1vh;
+}
+.cinema_active{
+  font-size: smaller;
+}

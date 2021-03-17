@@ -1,0 +1,47 @@
+<!-- 标题部分start -->
+<view class="title_container">
+  <view>{{movie_name}}</view>
+  <view class="tip">
+    <text>{{date}}</text>
+    <text>{{onplay}}</text>
+    <text>{{language}}2D</text>
+  </view>
+</view>
+<!-- 标题部分end -->
+<!-- 选座位部分start -->
+<view class="seat_container">
+  <view class="cinma_name">{{play_place}}</view>
+  <view wx:for= "{{array}}" wx:for-item="row"  wx:for-index="x" class="seat_body">
+    <view>{{x+1}}</view>
+    <view 
+    wx:for="{{row}}" 
+    data-price="{{price}}"
+    class=" seat {{(item == 2)?'seat_disable':((item == 0)?'seat_none':'seat_choosed')}}" 
+    bindtap="choose"   
+    wx:for-index="y" 
+    id="{{x*clo+y}}">
+        {{item}}
+      </view>
+  </view>
+</view>
+<!-- 选座位部分end -->
+
+
+<!-- 确定购票栏start -->
+<view class="button_container">
+  <!-- 选票显示 -->
+  <view class="ticket_show" wx:if="{{seat_position}}">
+  <view>
+    <view>已选座位</view>
+    <view class="ticket" wx:for="{{seat_position}}">
+      <view>{{item.x+1}}排{{item.y+1}}座</view>
+      <view style="color:red">￥{{price}}</view>
+    </view>
+  </view>
+</view>
+  <van-button type="warning" size="large" bindtap="confirm" data-array="{{array}}">￥{{total_price}}  确认选座</van-button>
+</view>
+<!-- 确定购票栏end -->
+
+
+

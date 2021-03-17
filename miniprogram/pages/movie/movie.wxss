@@ -1,0 +1,125 @@
+/* pages/movie/movie.wxss */
+/* 顶部悬浮窗start */
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-color: white;
+}
+.modal-box {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+  }
+   
+  .modal-content {
+    background: #fff;
+    width: 600rpx;
+    margin: 42% auto 0;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ebebec;
+  }
+   
+  .content-title {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 10rpx;
+  }
+   
+  .content-text {
+    padding:20px 0;
+    text-align: center;
+  }
+   
+  .modal-btns {
+    width: 600rpx;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  .dialog-btn {
+    border-radius: 0;
+    background: #fff;
+    height: 100rpx;
+    width: 100%;
+  }
+   
+  .dialog-btn::after {
+    border: none;
+    border-radius: 0;
+  }
+   
+  .cancel {
+    color: #ccc;
+  }
+   
+  .confirm {
+    border-left: 1px solid #ebebec;
+    color: #60d048;
+  }
+/* 顶部悬浮窗end */
+.top-container{
+    border-bottom: 1rpx solid #000000;
+    background-color: wheat;
+}
+.movie_card{
+    display: flex;
+    box-sizing: border-box;
+    padding: 2vh 2vh;
+    justify-content: space-between;
+    /* height: 20vh; */
+    border-bottom: 1px solid #DCDCDC;
+}
+.movie_card>.left{
+    flex: 2;
+}
+.movie_card>.left>image{
+    width: 100%;
+    height:100%
+}
+.movie_card>.mid{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding-left: 1vh;
+}
+.movie_card>.mid>.mid_title{
+    /* display: flex; */
+    overflow: hidden;
+}
+.mid_title>view:first-child{
+    font-weight: 600;
+    margin-right: 1vh;
+}
+.mid_title van-tag{
+    margin-right: 1px;
+}
+.movie_card>.mid text{
+    color: #6D6D6B;
+    font-size: small;
+}
+.movie_card>.mid>text:last-child{
+    color: #949494;
+}
+.movie_card>.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    text-align:center;
+    flex: 1;
+}
+.movie_card>.right>text{
+    color: orange;
+    font-size: medium;
+}
