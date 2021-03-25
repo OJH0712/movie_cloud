@@ -45,6 +45,7 @@
     <view class="tips_right">{{total_price}}元</view>
   </view>
   <view>
-    <van-button type="warning" size="large" bindtap="Show"  >确认支付</van-button>
+    <van-button type="warning" size="large" bindtap="Pay"  >确认支付</van-button>
+    <van-button type="warning" size="large" bindtap="test"  >测试</van-button>
   </view>
 </view>

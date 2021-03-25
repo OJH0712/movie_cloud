@@ -4,14 +4,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-      play_detail:[
-        {
-          id:1
-        },
-        {
-          id:2
-        }
-      ],
       active: 1,
       autoplay:true,
       movie_list:[],
@@ -23,7 +15,8 @@ Page({
       cinema_address:"",
       key:"0",
       index:"0",//排期栏滑动时的index
-      default_img:"https://p0.meituan.net/movie/df84690ded848edf709187eae23a7969866455.jpg@464w_644h_1e_1c"
+      default_img:"https://p0.meituan.net/movie/df84690ded848edf709187eae23a7969866455.jpg@464w_644h_1e_1c",
+      img_url:""
   },
   
 // 获取当前的电影序号，并在电影序号变化时，下面的排期跟着变化
@@ -31,18 +24,20 @@ Page({
       console.log(e.detail.current);
       this.setData({
         key:e.detail.current,
-        movie_list_temp:this.data.movie_list[e.detail.current]
+        movie_list_temp:this.data.movie_list[e.detail.current],
+        img_url:this.data.movie_detail[e.detail.current].img_url
       })
       console.log("movie_list_temp:",this.data.movie_list_temp)
+      console.log("img_url:",this.data.img_url)
 
   },
   //进入购买页面&&将此页面的购票有效信息传给购买页面
   onPurchase:function(data){
     let dataset = data.currentTarget.dataset
-    console.log("数据",dataset.play_place);
     let date = this.data.date_list[this.data.index];//日期
     let cinema_name = this.data.cinema_title//影院名字
     let movie_name = this.data.movie_detail[this.data.key].title//电影名字
+    let img_url = this.data.img_url//电影图片
     wx.navigateTo({
       url: '../../../pages/choose_seat/choose_seat',
       success:function(res){
@@ -55,6 +50,7 @@ Page({
         res.eventChannel.emit('play_place', dataset.play_place)
         res.eventChannel.emit("cinema_name",cinema_name)
         res.eventChannel.emit("movie_name",movie_name)
+        res.eventChannel.emit("img_url",img_url)
       }
     })
   },

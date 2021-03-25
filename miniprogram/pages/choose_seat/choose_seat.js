@@ -19,6 +19,7 @@ Page({
     play_place:"",
     cinema_name:"",
     movie_name:"",
+    img_url:""
   },
   // 状态改变触发
   getTypeByStatus:function(obj) {
@@ -107,6 +108,7 @@ Page({
       let onplay = that.data.onplay;
       let play_place = that.data.play_place;
       let language = that.data.language;
+      let img_url = that.data.img_url;
       
       if(seat_position.length == 0){
         wx.showModal({
@@ -129,6 +131,7 @@ Page({
             res.eventChannel.emit("movie_name",movie_name)
             res.eventChannel.emit("seat_position",seat_position)
             res.eventChannel.emit("array",array)
+            res.eventChannel.emit("img_url",img_url)
           }
         })
       }
@@ -191,6 +194,13 @@ Page({
       })
     });
     console.log(this.data.cinema_name)
+    // 获取上一页面传来的电影图片
+    eventChannel.on('img_url', (res) => {
+      this.setData({  
+        img_url: res,
+      })
+    });
+    console.log(this.data.img_url)
     // 获取上一页面传来的播出电影
     eventChannel.on('movie_name', (res) => {
       this.setData({  
@@ -202,6 +212,7 @@ Page({
     }).then((res)=>{
       console.log('电影名',res)
     })
+
 
     /**************数据获取end *****************/
   },

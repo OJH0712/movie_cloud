@@ -18,17 +18,99 @@ Page({
     play_place:"",
     cinema_name:"",
     movie_name:"",
+    random_code:0,
+    img_url:"",
   },
   onChange(event) {
     // event.detail 为当前输入的值
     console.log(event.detail);
   },
-  // 测试点击
-  Show(){
+  // 用户创建&&添加数据
+user_add(){
+  let that = this
+  const db = wx.cloud.database()
+  const openID = app.globalData.openid
+  db.collection('user').where({
+    _openid: db.command.eq(openID)
+  }).get({
+    success: function(res) {
+      if(res.data.length == 0){
+        console.log('未找到openid')
+        console.log('success',res)
+      }else{
+        console.log('找到openid')
+        console.log('success',res.data)
+      }
+    }
+  })
+  db.collection('user').where({
+    _openid:openID
+  }).update({
+    data:{
+      dingdan:db.command.push({
+          cinema_name: that.data.cinema_name,
+          movie_name: that.data.movie_name,
+          date: that.data.date,
+          onplay: that.data.onplay,
+          total_price: that.data.total_price,
+          array: that.data.array,
+          random_code: that.data.random_code,
+          price: that.data.cinema_name,
+          price: that.data.cinema_name,
+          img_url: that.data.img_url,
+          play_place: that.data.play_place,
+        })
+    },
+    success:(res)=>{
+      console.log("新增成功",res)
+    },
+    fail: err => {
+      console.log("新增失败",err)
+    }
+  })
+  // if()
+  // db.collection('user').add({
+  //   data:{
+  //     dingdan:[{
+  //         cinema_name: that.data.cinema_name,
+  //         movie_name: that.data.movie_name,
+  //         date: that.data.date,
+  //         onplay: that.data.onplay,
+  //         total_price: that.data.total_price,
+  //         array: that.data.array,
+  //         random_code: that.data.random_code,
+  //         price: that.data.cinema_name,
+  //         price: that.data.cinema_name,
+  //         img_url: that.data.img_url,
+  //         play_place: that.data.play_place
+  //       }]
+  //   },
+  //   success:(res)=>{
+  //     console.log("新增成功",res._id)
+  //   }
+  // })
+},
+// 创建随机验票码
+OnRandom(){
+  let code = Math.floor(Math.random()*10000)
+  this.setData(
+    {
+      random_code:code
+    }
+  )
+},
+// 测试
+test(){
+  console.log(this.data.img_url)
+  this.user_add()
+  },
+  // 支付点击
+  Pay(){
     wx.requestSubscribeMessage({
       tmplIds: ['lt6Ny3UDN_f_z9pTgP-2ASuJXLIBvgoCLNNN-FQpg-M'],
     }).then(res=>{
       console.log("授权成功",res)
+      this.OnRandom()
       this.getOpenid()
     }).catch(res=>{
       console.log("授权失败",res)
@@ -71,6 +153,7 @@ Page({
           res.eventChannel.emit("cinema_name",that.data.cinema_name)
           res.eventChannel.emit("movie_name",that.data.movie_name)
           res.eventChannel.emit("seat_position",that.data.seat_position)
+          res.eventChannel.emit("img_url",that.data.img_url)
         }
       })
     }).catch((res)=>{
@@ -163,6 +246,13 @@ Page({
       })
     });
     console.log(this.data.cinema_name)
+    // 获取上一页面传来的播出电影图片
+    eventChannel.on('img_url', (res) => {
+      this.setData({  
+        img_url: res,
+      })
+    });
+    console.log(this.data.img_url)
     // 获取上一页面传来的播出电影
     eventChannel.on('movie_name', (res) => {
       this.setData({  

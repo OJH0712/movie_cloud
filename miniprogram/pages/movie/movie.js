@@ -68,24 +68,43 @@ Page({
     // 查询电影
     onQuery: function() {
       const db = wx.cloud.database()
-      // 查询当前用户所有的 counters
-      console.log(this.data.openid)
-      db.collection('movie').get({
-        success: res => {
-          this.setData({
-            queryResult: res.data
-          })
-          console.log('[数据库] [查询记录] 成功: ', res.data)
-          console.log('[数据库] [查询记录] 成功: ', this.data.queryResult)
-        },
-        fail: err => {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败'
-          })
-          console.error('[数据库] [查询记录] 失败：', err)
+      const openID = app.globalData.openid
+      // 初始创建用户表
+      db.collection('user').where({
+        _openid: db.command.eq(openID)
+      }).get({
+        success: function(res) {
+          if(res.data.length == 0){
+            db.collection('user').add({
+              data:{
+                dingdan:[],
+                comment:[]
+              }
+            })
+            console.log('success',res)
+          }else{
+            console.log('找到openid')
+            console.log('success',res.data)
+          }
         }
       })
+      // 查询当前电影所有的信息
+      // db.collection('movie').get({
+      //   success: res => {
+      //     this.setData({
+      //       queryResult: res.data
+      //     })
+      //     console.log('[数据库] [查询记录] 成功: ', res.data)
+      //     console.log('[数据库] [查询记录] 成功: ', this.data.queryResult)
+      //   },
+      //   fail: err => {
+      //     wx.showToast({
+      //       icon: 'none',
+      //       title: '查询记录失败'
+      //     })
+      //     console.error('[数据库] [查询记录] 失败：', err)
+      //   }
+      // })
     },
   // 搜索按钮点击跳转搜索页面
   onSearch() {
