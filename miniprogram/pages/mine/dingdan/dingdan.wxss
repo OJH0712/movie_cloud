@@ -21,10 +21,27 @@ page{
   justify-content: space-around;
 }
 .mid>.right-container{
+  flex: 2;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
 }
+
 .mid>.left-container{
+  flex: 1;
   padding: 1vh;
+}
+.mid>.left-container image{
+  width: 100px;
+  height: 144px;
 }
 .bot{
   padding: 1vh;
+}
+.ticket{
+  color: #cdcdcd;
+  font-size: small;
 }

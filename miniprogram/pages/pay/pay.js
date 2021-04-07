@@ -30,6 +30,7 @@ user_add(){
   let that = this
   const db = wx.cloud.database()
   const openID = app.globalData.openid
+  const seat_num = that.data.seat_position.length
   db.collection('user').where({
     _openid: db.command.eq(openID)
   }).get({
@@ -53,10 +54,9 @@ user_add(){
           date: that.data.date,
           onplay: that.data.onplay,
           total_price: that.data.total_price,
-          array: that.data.array,
+          seat_num:seat_num,
+          seat_position: that.data.seat_position,
           random_code: that.data.random_code,
-          price: that.data.cinema_name,
-          price: that.data.cinema_name,
           img_url: that.data.img_url,
           play_place: that.data.play_place,
         })

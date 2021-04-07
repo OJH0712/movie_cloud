@@ -1,16 +1,18 @@
 <!--pages/mine/dingdan/dingdan.wxml-->
-<view class="dd_container">
-  <view class="top">{{cinema_name}}</view>
+<view class="dd_container" wx:for="{{querydata}}">
+  <view class="top">{{item.cinema_name}}</view>
   <view class="mid">
-    <view class="right-container">
-      <view class="pic">图片</view>
-    </view>
     <view class="left-container">
-      <view>{{movie_name}} 两张</view>
-      <view>取票码：<text>6677</text></view>
-      <view>{{date}} {{onplay}}</view>
-      <view>{{play_place}} <text wx:for="{{seat_position}}">{{item.x+1}}排{{item.y+1}}座</text></view>
+      <view class="pic">
+      <image src="{{item.img_url}}" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="right-container">
+      <view>{{item.movie_name}} <text class="ticket">({{item.seat_num}}张)</text> </view>
+      <view>取票码：<text>{{item.random_code}}</text></view>
+      <view>{{item.date}} {{item.onplay}}</view>
+      <view>{{item.play_place}} <text wx:for="{{item.seat_position}}" class="ticket"> {{item.x+1}}排{{item.y+1}}座 </text></view>
     </view>
   </view>
-  <view class="bot">总价<text>{{total_price}}元</text></view>
+  <view class="bot">总价：<text>{{item.total_price}}元</text></view>
 </view>
