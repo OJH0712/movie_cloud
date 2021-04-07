@@ -68,27 +68,6 @@ user_add(){
       console.log("新增失败",err)
     }
   })
-  // if()
-  // db.collection('user').add({
-  //   data:{
-  //     dingdan:[{
-  //         cinema_name: that.data.cinema_name,
-  //         movie_name: that.data.movie_name,
-  //         date: that.data.date,
-  //         onplay: that.data.onplay,
-  //         total_price: that.data.total_price,
-  //         array: that.data.array,
-  //         random_code: that.data.random_code,
-  //         price: that.data.cinema_name,
-  //         price: that.data.cinema_name,
-  //         img_url: that.data.img_url,
-  //         play_place: that.data.play_place
-  //       }]
-  //   },
-  //   success:(res)=>{
-  //     console.log("新增成功",res._id)
-  //   }
-  // })
 },
 // 创建随机验票码
 OnRandom(){
@@ -100,10 +79,10 @@ OnRandom(){
   )
 },
 // 测试
-test(){
-  console.log(this.data.img_url)
-  this.user_add()
-  },
+// test(){
+//   console.log(this.data.img_url)
+//   this.user_add()
+//   },
   // 支付点击
   Pay(){
     wx.requestSubscribeMessage({
@@ -112,6 +91,7 @@ test(){
       console.log("授权成功",res)
       this.OnRandom()
       this.getOpenid()
+      this.user_add()
     }).catch(res=>{
       console.log("授权失败",res)
     })
@@ -141,21 +121,6 @@ test(){
         icon: 'success',   // 图标类型，默认success 图标支持开发文档的icon
         duration: 1500   // 图标停留时间，默认1500ms
     })    
-      wx.navigateTo({
-        url: '../../pages/mine/dingdan/dingdan',
-        success:function(res){
-          // 通过eventChannel向被打开页面传送数据
-          res.eventChannel.emit('date', that.data.date)
-          res.eventChannel.emit('total_price', that.data.total_price)
-          res.eventChannel.emit('price', that.data.price)
-          res.eventChannel.emit('onplay', that.data.onplay)
-          res.eventChannel.emit('play_place', that.data.play_place)
-          res.eventChannel.emit("cinema_name",that.data.cinema_name)
-          res.eventChannel.emit("movie_name",that.data.movie_name)
-          res.eventChannel.emit("seat_position",that.data.seat_position)
-          res.eventChannel.emit("img_url",that.data.img_url)
-        }
-      })
     }).catch((res)=>{
       console.log("推送消息失败",res)
     })

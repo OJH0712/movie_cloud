@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/mine/dingdan/dingdan",
     "pages/movie/movie",
     "pages/movie/movie_introduce/movie_introduce",
-    "pages/mine/dingdan/dingdan",
     "pages/search/search",
     "pages/cinema/cinema",
     "pages/pay/pay",

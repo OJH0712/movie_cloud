@@ -46,6 +46,6 @@
   </view>
   <view>
     <van-button type="warning" size="large" bindtap="Pay"  >确认支付</van-button>
-    <van-button type="warning" size="large" bindtap="test"  >测试</van-button>
+    <!-- <van-button type="warning" size="large" bindtap="test"  >测试</van-button> -->
   </view>
 </view>

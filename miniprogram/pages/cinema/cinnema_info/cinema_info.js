@@ -140,7 +140,6 @@ Page({
   // 获取电影信息
   onQuery_movie: function() {
     const db = wx.cloud.database()
-    // console.log(this.data.openid)
     db.collection('movie').get({
       success: res => {
         this.setData({
@@ -170,25 +169,28 @@ Page({
     console.log("获取到属性",this.data.cinema_detail);
     for(let i=0; i<=4;i++){
       let date = month+"月"+day+"日";
-      day = day+1;
       if(day_31.indexOf(month)!==-1&&day>31){
-        month_temp=month+1
-        date = month_temp+"月"+day+"日"
+        let month_temp=month+1
+        let day_temp = day-31
+        date = month_temp+"月"+day_temp+"日"
       }
       if(day_30.indexOf(month)!==-1&&day>30){
-        month_temp=month+1
-        date = month_temp+"月"+day+"日"
+        let month_temp=month+1
+        let day_temp = day-30
+        date = month_temp+"月"+day_temp+"日"
       }
       if(day_29.indexOf(month)!==-1&&day>29){
-        month_temp=month+1
-        date = month_temp+"月"+day+"日"
+        let month_temp=month+1
+        let day_temp = day-29
+        date = month_temp+"月"+day_temp+"日"
       }
       date_list.push(date)
+      day = day+1;
     }
     this.setData({
       date_list:date_list
     })
-    // console.log(this.data.date_list)
+    console.log(this.data.date_list)
   },
   // 移动日期属性时显示不同的排期（获取其中的move_key）
   onChange:function(e){
@@ -201,16 +203,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-        // // 获取今后四天的电影排期
-        // this.onDate()
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      // 获取今后四天的电影排期
-      this.onDate()
+          // 获取今后四天的电影排期
+          this.onDate()
   },
 
   /**

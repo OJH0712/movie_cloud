@@ -48,6 +48,7 @@ Page({
   // 获取openid
   onGetOpenid: function() {
     // 调用云函数
+    const that = this
     wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -59,52 +60,64 @@ Page({
           login_show: true,
           openid:res.result.openid
         })
+        that.onTestUser()
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
       }
     })
   },
+  // 初始创建用户表
+  onTestUser:function(){
+    const db = wx.cloud.database()
+    const that = this
+    const openID = app.globalData.openid
+    // 初始创建用户表
+    db.collection('user').where({
+      _openid: db.command.eq(openID)
+    }).get({
+      success: function(res) {
+        if(res.data.length == 0){
+         that.addNewUser()
+        }else{
+          console.log("已有该用户",res)
+        }
+      }
+    })
+  },
+  addNewUser:function(){
+    const db = wx.cloud.database()
+    db.collection('user').add({
+      data:{
+        dingdan:[],
+        comment:[],
+      },
+      success:function(res){
+        console.log('success',res)
+      },
+      fail: console.error,
+    })
+  },
     // 查询电影
     onQuery: function() {
       const db = wx.cloud.database()
-      const openID = app.globalData.openid
-      // 初始创建用户表
-      db.collection('user').where({
-        _openid: db.command.eq(openID)
-      }).get({
-        success: function(res) {
-          if(res.data.length == 0){
-            db.collection('user').add({
-              data:{
-                dingdan:[],
-                comment:[]
-              }
-            })
-            console.log('success',res)
-          }else{
-            console.log('找到openid')
-            console.log('success',res.data)
-          }
+      // 查询当前电影所有的信息
+      db.collection('movie').get({
+        success: res => {
+          this.setData({
+            queryResult: res.data
+          })
+          console.log('[数据库] [查询记录] 成功: ', res.data)
+          console.log('[数据库] [查询记录] 成功: ', this.data.queryResult)
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '查询记录失败'
+          })
+          console.error('[数据库] [查询记录] 失败：', err)
         }
       })
-      // 查询当前电影所有的信息
-      // db.collection('movie').get({
-      //   success: res => {
-      //     this.setData({
-      //       queryResult: res.data
-      //     })
-      //     console.log('[数据库] [查询记录] 成功: ', res.data)
-      //     console.log('[数据库] [查询记录] 成功: ', this.data.queryResult)
-      //   },
-      //   fail: err => {
-      //     wx.showToast({
-      //       icon: 'none',
-      //       title: '查询记录失败'
-      //     })
-      //     console.error('[数据库] [查询记录] 失败：', err)
-      //   }
-      // })
     },
   // 搜索按钮点击跳转搜索页面
   onSearch() {
